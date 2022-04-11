@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <div class="row">
+            <h2>Order details</h2>
+          </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="row row-content">
+                <div class="col-3">
+                  <label for="username" name="username">Name</label>
+                </div>
+                <div class="col-3">
+                  <input type="text" for="username" name="username" placeholder="name">
+                </div>
+              </div>
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="row row-content">
+                  <div class="col-3">
+                    <label for="cardnumber" name="cardnumber">Cardnumber</label>
+                  </div>
+                  <div class="col-3">
+                    <input type="text" for="cardnumber" name="cardnumber" placeholder="cardnumber">
+                  </div>
+                </div>
+          
+              </div>
+             
+          
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="row row-content">
+          
+                  <div class="col-3">
+                    <label for="cvv" name="cvv">Cvv</label>
+                  </div>
+                  <div class="col-3">
+                    <input type="text" for="cvv" name="cvv" placeholder="cvv">
+                  </div>
+                </div>
+              </div>
+          
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="row row-content">
+          
+                  <div class="col-3">
+                    <label for="dob" name="dob">Date Of Birth</label>
+                  </div>
+                  <div class="col-3">
+                    <input type="date" for="dob" name="dob" placeholder="dob">
+                  </div>
+                </div>
+              </div>
+          
+            </div>
+            <div class="row">
+                
+                <div class="col-6">
+                    <input type="radio" id="delivery" name="delivery" value="delivery">     
+                        <label for="delivery">Delivery</label>&ensp;
+                    <input type="radio" id="pickup" name="pickup" value="pickup">
+                        <label for="pickup">Pickup</label>&ensp;
+                                                        
+                </div>
+                </div>
+           
+              <div class="row">
+                <div class="col-2 offset-4">
+                  <div class="row row-content">
+                    <a class="btn btn-secondary btn-sm btn-block" data-toggle="modal" data-target="#myModal">Place Order</a>
+                  </div>
+          
+                </div>
+          
+              </div>
+              
+              <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg" role="content">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Login </h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <strong>Order Placed!</strong>Thanks for placing the order.
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>

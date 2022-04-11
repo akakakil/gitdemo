@@ -1,0 +1,28 @@
+.footer{
+    background-color: lightgray;
+    margin:0px auto;
+    padding: 20px 0px 20px 0px;
+}
+.jumbotron {
+    padding:70px 30px 70px 30px;
+    margin:0px auto;
+    background: grey ;
+    color:floralwhite;
+    text-align: center;
+}
+.body{
+    background-color :aliceblue;
+}
+p{
+    text-align: center;
+    font-style: oblique;
+    
+}
+h3{
+    text-align: center;
+    color: blueviolet;
+}
+h2{
+   
+    text-align: center;
+}

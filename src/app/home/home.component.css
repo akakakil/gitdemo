@@ -1,0 +1,38 @@
+h3{
+    text-align: center;
+    color: blueviolet;
+}
+h2{
+   
+    text-align: center;
+}
+
+.body{
+    background-color :aliceblue;
+}
+p{
+    text-align: center;
+    font-style: oblique;
+    
+}
+
+.selectBurger{
+    
+    width: auto;
+}
+.selectDrink{
+    
+    width: auto;
+}
+.selectDessert{
+    width:auto;
+}
+.orderbutton{
+    
+   text-align: center;
+}
+.img-fluid{
+    width:20%;
+}
+
+

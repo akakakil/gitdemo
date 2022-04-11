@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="body"> 
+
+    
+    <div>
+       
+            <div>
+                <h3>Our menu</h3>
+            </div>
+            <div>
+                <h2>Burgers</h2>
+                <p>
+                  "Life is too short to miss out on double cheeseburgers"
+                </p>
+<div class="row">
+  <div class="col col-6 offset-2">
+    <select class="selectBurger" name="burgerSelect" id="burgerSelect">
+      <option>Cheeseburger</option>
+      <option>Hamburger</option>
+      <option>Chicken burger</option>
+    </select>
+  </div>
+  <div class="col col-6 offset-5">
+  <img src="assets/image/burger.jpg" class="img-fluid" alt="Responsive image">
+</div>
+</div>
+
+                </div>
+
+        <div>
+            
+                <h2>Drinks</h2>
+                <p>
+                  "A cold drink is the answer to most problems"
+                </p>
+                <div class="row">
+                  <div class="col col-6 offset-2">
+                    <select class="selectDrink" name="drinkSelect" id="drinkSelect">
+                      <option>Water</option>
+                      <option>Coke</option>
+                      <option>Mountain Dew</option>
+                    </select>
+                  </div>
+                  <div class="col col-6 offset-5">
+                  <img src="assets/image/drink.jpg" class="img-fluid" alt="Responsive image">
+                </div>
+                </div>
+
+        </div>
+
+        <div>
+           
+                <h2>Desserts</h2>
+                <p>"A few more calories won't hurt"</p>
+                <div class="row">
+                  <div class="col col-6 offset-2">
+                    <select class="selectDessert" name="dessertSelect" id="dessertSelect">
+                      <option>Choco Lava</option>
+                      <option>Cheesecake</option>
+                      <option>Sizzling brownie</option>
+                    </select>
+                  </div>
+                  <div class="col col-6 offset-5">
+                  <img src="assets/image/dessert.jpg" class="img-fluid" alt="Responsive image">
+                </div>
+                </div>
+
+        </div>
+    </div>
+    <div class="row orderbutton">
+      <div class="col-6 offset-3">
+    <a (click)="navigateNext('/order')" class="btn btn-primary" type="button">Order now!!</a>
+  </div>
+  </div>
+
+   
+
+</body>
+
+</html>
+

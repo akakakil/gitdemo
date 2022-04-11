@@ -1,0 +1,12 @@
+
+body{
+    background-color :aliceblue;
+   
+}
+
+.row-content{
+   padding-left: 100px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   align-items: center;
+}
