@@ -27,8 +27,12 @@
     </mat-grid-tile>
   </mat-grid-list>
 </div>
-<div [hidden]="dishes">
+<div [hidden]="dishes || errMsg">
 <mat-spinner></mat-spinner><h4>Loading . . .Please Wait!</h4>
+</div>
+<div *ngIf="errMsg">
+<h1>Error</h1>
+<h4>{{errMsg | json}}</h4>
 </div>
 
 <!-- <div fxFlex *ngIf="selectedDish">

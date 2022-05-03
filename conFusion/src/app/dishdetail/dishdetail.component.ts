@@ -19,6 +19,7 @@ export class DishdetailComponent implements OnInit {
   next!: string;
   dish?:Dish;
   comment!:Comment;
+  errMsg!:string;
 
   @ViewChild('fform') commentFormDirective: any;
 
@@ -53,7 +54,9 @@ export class DishdetailComponent implements OnInit {
     // );
     this.dishservice.getDishIds().subscribe((dishIds)=>this.dishIds=dishIds);
     this.route.params.pipe(switchMap((params:Params)=>this.dishservice.getDish(params['id'])))
-    .subscribe(dish=>{this.dish=dish,this.setPrevNext(dish.id);});
+    .subscribe(dish=>{this.dish=dish,this.setPrevNext(dish.id);},
+                errmess=>this.errMsg=errmess
+    );
   }
 
   
