@@ -20,6 +20,8 @@ export class DishdetailComponent implements OnInit {
   dish?:Dish;
   comment!:Comment;
   errMsg!:string;
+  dishCopy?:Dish;
+  status!:string;
 
   @ViewChild('fform') commentFormDirective: any;
 
@@ -54,7 +56,7 @@ export class DishdetailComponent implements OnInit {
     // );
     this.dishservice.getDishIds().subscribe((dishIds)=>this.dishIds=dishIds);
     this.route.params.pipe(switchMap((params:Params)=>this.dishservice.getDish(params['id'])))
-    .subscribe(dish=>{this.dish=dish,this.setPrevNext(dish.id);},
+    .subscribe(dish=>{this.dish=dish,this.dishCopy=dish,this.setPrevNext(dish.id);},
                 errmess=>this.errMsg=errmess
     );
   }
@@ -108,7 +110,8 @@ onValueChanged(data?:any){
     let text = d.toISOString();
     this.commentForm.value.date = text;
     this.comment = this.commentForm.value;
-    this.dish?.comments.push(this.comment);
+    this.dishCopy?.comments.push(this.comment);
+    this.dishservice.putDish(this.dishCopy!).subscribe(dish=>{this.dish=dish;this.dishCopy=dish;},errmess=>this.errMsg=errmess);
     console.log(this.comment);
     this.commentForm.reset({
       author: '',
@@ -117,6 +120,8 @@ onValueChanged(data?:any){
     });
     this.commentFormDirective.resetForm({rating:5});
   }
-
+  // deleteitem(particularDish:Dish){
+  //   this.dishservice.deleteDish(particularDish).subscribe(() => this.status = 'Delete successful');
+  // }
   
 }
