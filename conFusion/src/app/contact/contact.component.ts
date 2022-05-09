@@ -1,17 +1,28 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { flyInOut } from '../animations/app.animations';
+import { FeedbackService } from '../services/feedback.service';
 import { Feedback, ContactType } from '../shared/feedback';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: block;'
+    },
+    animations: [
+      flyInOut()
+    ]
 })
 export class ContactComponent implements OnInit {
 
   feedbackForm!: FormGroup;
   feedback!: Feedback;
+  feedbackCopy!:Feedback;
   contactType = ContactType;
+  errMsg!:string;
 
   @ViewChild('fform') feedbackFormDirective: any;
 
@@ -43,7 +54,8 @@ export class ContactComponent implements OnInit {
     },
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private feedbackservice:FeedbackService) {
     this.createForm();
   }
 
@@ -53,7 +65,7 @@ export class ContactComponent implements OnInit {
       this.feedbackForm = this.fb.group({
       firstname: ['',[Validators.required,Validators.minLength(2),Validators.maxLength(25)]],
       lastname: ['',[Validators.required,Validators.minLength(2),Validators.maxLength(25)]],
-      telnum: [0,[Validators.required,Validators.pattern]],
+      telnum: ['',[Validators.required,Validators.pattern]],
       email: ['',[Validators.required,Validators.email]],
       agree: false,
       contacttype: 'None',
@@ -88,11 +100,12 @@ export class ContactComponent implements OnInit {
   }
   onSubmit() {
     this.feedback = this.feedbackForm.value;
-    console.log(this.feedback);
+    this.feedbackservice.submitFeedback(this.feedback).subscribe(fb=>{this.feedbackCopy=fb},errmess=>this.errMsg=errmess);
+   // console.log(this.feedbackCopy);
     this.feedbackForm.reset({
       firstname: '',
       lastname: '',
-      telnum: 0,
+      telnum: '',
       email: '',
       agree: false,
       contacttype: 'None',
@@ -100,4 +113,6 @@ export class ContactComponent implements OnInit {
     });
     this.feedbackFormDirective.resetForm();
   }
+
+ 
 }

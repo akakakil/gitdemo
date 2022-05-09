@@ -1,4 +1,5 @@
 import { Component, OnInit,Inject } from '@angular/core';
+import { expand, flyInOut } from '../animations/app.animations';
 import { DishService } from '../services/dish.service';
 import { LeaderService } from '../services/leader.service';
 import { PromotionService } from '../services/promotion.service';
@@ -9,7 +10,14 @@ import { Promotion } from '../shared/promotion';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: block;'
+    },
+    animations: [
+      flyInOut(),expand()
+    ]
 })
 export class HomeComponent implements OnInit {
 
@@ -17,6 +25,8 @@ export class HomeComponent implements OnInit {
   promotion?: Promotion;
   leader?:leader;
   dishErrMsg!:string;
+  leaderErrMsg!:string;
+  promoErrMsg!:string;
 
   constructor(private dishservice: DishService,
     private promotionservice: PromotionService,
@@ -29,10 +39,12 @@ export class HomeComponent implements OnInit {
       errmess=>this.dishErrMsg=errmess
     );
     this.promotionservice.getFeaturedPromotion().subscribe(
-        (promotion)=>this.promotion = promotion
+        (promotion)=>this.promotion = promotion,
+        errmess=>this.promoErrMsg=errmess
     );
     this.leaderService.getFeaturedLeader().subscribe(
-      (leader)=>this.leader=leader
+      (leader)=>this.leader=leader,
+      errmess=>this.leaderErrMsg=errmess
     );
   }
 

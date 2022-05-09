@@ -51,11 +51,11 @@ describe('MenuComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('dishes items should be 4', () => {
-    expect(component.dishes.length).toBe(4);
-    expect(component.dishes[1].name).toBe('Zucchipakoda');
-    expect(component.dishes[3].featured).toBeFalsy();
-  });
+  // it('dishes items should be 4', () => {
+  //   expect(component.dishes.length).toBe(4);
+  //   expect(component.dishes[1].name).toBe('Zucchipakoda');
+  //   expect(component.dishes[3].featured).toBeFalsy();
+  // });
 
   it('should use dishes in the template', () => {
     fixture.detectChanges();
